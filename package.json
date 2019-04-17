@@ -1,5 +1,5 @@
 {
-  "name": "cxpeditor",
+  "name": "@webscopeio/react-markdown-editor",
   "version": "1.0.5",
   "description": "Markdown editor with Github-like autocomplete",
   "author": "Webscope.io",
