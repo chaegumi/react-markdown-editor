@@ -88,13 +88,13 @@ class MarkdownEditor extends React.Component<MarkdownEditorProps> {
               onClick={this.onSetPreviewFalse}
               className={classNames(classes.navButton,
                 { [classes.selected]: !preview })}
-            >Write
+            >Write1
             </button>
             <button
               onClick={this.onSetPreviewTrue}
               className={classNames(classes.navButton,
                 { [classes.selected]: !!preview })}
-            >Preview
+            >Preview2
             </button>
           </nav>
           {
