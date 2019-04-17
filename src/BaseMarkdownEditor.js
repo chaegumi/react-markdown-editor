@@ -97,13 +97,18 @@ class MarkdownEditor extends React.Component<MarkdownEditorProps> {
             >Preview
             </button>
           </nav>
-          <Toolbar
-            setSelectionRange={this.setSelectionRange}
-            getSelectedRange={this.getSelectedRange}
-            setCaretPosition={this.setCaretPosition}
-            value={value}
-            onChange={onChange}
-          />
+          {
+            !preview ?
+              <Toolbar
+                setSelectionRange={this.setSelectionRange}
+                getSelectedRange={this.getSelectedRange}
+                setCaretPosition={this.setCaretPosition}
+                value={value}
+                onChange={onChange}
+              />            
+            : null
+          }
+
         </div>
         <div className={classes.content}>
           {preview

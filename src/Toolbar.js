@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import Octicon, { getIconByName } from '@githubprimer/octicons-react';
 import { insertSymbol, wrapSelectedRangeWithSymbols } from './helpers'
 import styles from './Toolbar.module.css'
 
@@ -57,15 +58,99 @@ class Toolbar extends Component<ToolbarProps> {
     this.insertSymbols({ prefix: '_', suffix: '_' })
   }
 
+  onClickCommand = (command) => {
+    switch(command){
+      case 'heading':
+        this.insertSymbols({ prefix: '#' })
+        break;
+      case 'bold':
+        this.insertBold()
+        break;
+      case 'italic':
+        this.insertSymbols()
+        break;
+      case 'quote':
+
+        break;
+    }
+  }
+
   render() {
+    const commands = [
+        {
+            command: 'heading',
+            icon: 'text-size',
+            label: 'Add Header Text',
+        },
+        {
+            command: 'bold',
+            icon: 'bold',
+            label: 'Bold',
+        },
+        {
+            command: 'italic',
+            icon: 'italic',
+            label: 'Italic',
+        },
+        {
+            command: 'quote',
+            icon: 'quote',
+            label: 'Quote',
+        },
+        {
+            command: 'CODE',
+            icon: 'code',
+            label: 'Monospace',
+        },
+        {
+            command: 'link',
+            icon: 'link',
+            label: 'Link',
+        },
+        {
+            command: 'ul',
+            icon: 'list-unordered',
+            label: 'List',
+        },
+        {
+            command: 'ol',
+            icon: 'list-ordered',
+            label: 'Numbered',
+        },
+        {
+            command: 'tasklist',
+            icon: 'tasklist',
+            label: '任务',
+        },
+        {
+            command: 'mention',
+            icon: 'mention',
+            label: '提及',
+        },
+        {
+            command: 'bookmark',
+            icon: 'bookmark',
+            label: '关联issue或PR',
+        },
+        {
+            command: 'reply',
+            icon: 'reply',
+            label: '关联回复',
+        },
+    ];
     return (
       <div>
-        <button onClick={this.insertBold} className={styles.button}>
-          <img src={bold} alt="Bold" />
-        </button>
-        <button onClick={this.insertItalics} className={styles.button}>
-          <img src={italics} alt="Italics" />
-        </button>
+        {commands.map((itm, idx) => {
+            return (
+                <div
+                    key={itm.command}
+                    onClick={this.onClickCommand(itm.command)}
+                    className={idx % 3 === 0 ? styles.buttongroup : styles.button}
+                >
+                    <Octicon title={itm.label} icon={getIconByName(itm.icon)} />
+                </div>
+            );
+        })}
       </div>
     )
   }

@@ -26,6 +26,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@githubprimer/octicons-react": "^8.5.0",
     "@webscopeio/react-textarea-autocomplete": "2.2.0",
     "classnames": "2.2.5",
     "emojilib": "2.2.12",
