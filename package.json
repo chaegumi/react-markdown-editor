@@ -1,6 +1,6 @@
 {
-  "name": "react-markdown-editor",
-  "version": "1.0.5",
+  "name": "@webscopeio/react-markdown-editor",
+  "version": "1.0.4",
   "description": "Markdown editor with Github-like autocomplete",
   "author": "Webscope.io",
   "license": "MIT",
